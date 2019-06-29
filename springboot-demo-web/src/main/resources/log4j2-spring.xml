@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<properties>
+		<property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} |-%-5level [%thread] %c [%L] -| %msg%n</property>
+	</properties>
+
+	<appenders>
+		<Console name="CONSOLE" target="system_out">
+			<PatternLayout pattern="${PATTERN}" />
+		</Console>
+	</appenders>
+
+	<loggers>
+		<logger name="org.demo.web" level="INFO" />
+		<root level="INFO">
+			<appenderref ref="CONSOLE" />
+		</root>
+	</loggers>
+
+</configuration>

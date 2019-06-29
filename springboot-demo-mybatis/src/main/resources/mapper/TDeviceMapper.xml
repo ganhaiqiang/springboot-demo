@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.demo.mybatis.dao.TDeviceMapper">
+  <resultMap id="BaseResultMap" type="org.demo.mybatis.model.TDevice">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="UNIQUE_ID" jdbcType="VARCHAR" property="uniqueId" />
+    <result column="UUID" jdbcType="VARCHAR" property="uuid" />
+    <result column="THIRD_ID" jdbcType="VARCHAR" property="thirdId" />
+    <result column="ACCOUNT_ID" jdbcType="INTEGER" property="accountId" />
+    <result column="DEVICE_TYPE_ID" jdbcType="INTEGER" property="deviceTypeId" />
+    <result column="GROUP_ID" jdbcType="INTEGER" property="groupId" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="WIDTH" jdbcType="VARCHAR" property="width" />
+    <result column="HEIGHT" jdbcType="VARCHAR" property="height" />
+    <result column="WIDTH_CM" jdbcType="VARCHAR" property="widthCm" />
+    <result column="HEIGHT_CM" jdbcType="VARCHAR" property="heightCm" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="OPEN" jdbcType="CHAR" property="open" />
+    <result column="PROVINCE" jdbcType="VARCHAR" property="province" />
+    <result column="PROVINCE_CODE" jdbcType="VARCHAR" property="provinceCode" />
+    <result column="CITY" jdbcType="VARCHAR" property="city" />
+    <result column="CITY_CODE" jdbcType="VARCHAR" property="cityCode" />
+    <result column="DISTRICT" jdbcType="VARCHAR" property="district" />
+    <result column="DISTRICT_CODE" jdbcType="VARCHAR" property="districtCode" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="LONGITUDE" jdbcType="DECIMAL" property="longitude" />
+    <result column="LATITUDE" jdbcType="DECIMAL" property="latitude" />
+    <result column="JOIN_TYPE" jdbcType="CHAR" property="joinType" />
+    <result column="POI" jdbcType="VARCHAR" property="poi" />
+    <result column="POI_ADDRESS" jdbcType="VARCHAR" property="poiAddress" />
+    <result column="IS_NET" jdbcType="CHAR" property="isNet" />
+    <result column="SIZE" jdbcType="DOUBLE" property="size" />
+    <result column="LABELS" jdbcType="VARCHAR" property="labels" />
+    <result column="CRM_CODE" jdbcType="VARCHAR" property="crmCode" />
+    <result column="COMBINED_ID" jdbcType="INTEGER" property="combinedId" />
+    <result column="MODEL" jdbcType="VARCHAR" property="model" />
+    <result column="BRAND" jdbcType="VARCHAR" property="brand" />
+    <result column="SCREEN_QUANTITY" jdbcType="INTEGER" property="screenQuantity" />
+    <result column="SEE_NUM" jdbcType="INTEGER" property="seeNum" />
+    <result column="SECRET" jdbcType="VARCHAR" property="secret" />
+    <result column="APP_TYPE" jdbcType="VARCHAR" property="appType" />
+    <result column="PAY_TYPE" jdbcType="VARCHAR" property="payType" />
+    <result column="DEVICE_TYPE_NAME" jdbcType="VARCHAR" property="deviceTypeName" />
+    <result column="HEARTBEAT_TIME" jdbcType="TIMESTAMP" property="heartbeatTime" />
+    <result column="COMMENT" jdbcType="VARCHAR" property="comment" />
+    <result column="DEVICE_NAME" jdbcType="VARCHAR" property="deviceName" />
+    <result column="PAYMENT_STATUS" jdbcType="BIT" property="paymentStatus" />
+    <result column="DEVICE_PRICE" jdbcType="DECIMAL" property="devicePrice" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="IS_SALE" jdbcType="CHAR" property="isSale" />
+    <result column="SALE_TYPE" jdbcType="VARCHAR" property="saleType" />
+    <result column="BAIDU_FLAG" jdbcType="CHAR" property="baiduFlag" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="auto_serving" jdbcType="CHAR" property="autoServing" />
+    <result column="import_tgp" jdbcType="CHAR" property="importTgp" />
+    <result column="tgp_status" jdbcType="CHAR" property="tgpStatus" />
+    <result column="qrcode" jdbcType="VARCHAR" property="qrcode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    ID, UNIQUE_ID, UUID, THIRD_ID, ACCOUNT_ID, DEVICE_TYPE_ID, GROUP_ID, NAME, WIDTH, 
+    HEIGHT, WIDTH_CM, HEIGHT_CM, STATUS, OPEN, PROVINCE, PROVINCE_CODE, CITY, CITY_CODE, 
+    DISTRICT, DISTRICT_CODE, ADDRESS, LONGITUDE, LATITUDE, JOIN_TYPE, POI, POI_ADDRESS, 
+    IS_NET, SIZE, LABELS, CRM_CODE, COMBINED_ID, MODEL, BRAND, SCREEN_QUANTITY, SEE_NUM, 
+    SECRET, APP_TYPE, PAY_TYPE, DEVICE_TYPE_NAME, HEARTBEAT_TIME, COMMENT, DEVICE_NAME, 
+    PAYMENT_STATUS, DEVICE_PRICE, CREATE_TIME, UPDATE_TIME, IS_SALE, SALE_TYPE, BAIDU_FLAG, 
+    ip, auto_serving, import_tgp, tgp_status, qrcode
+  </sql>
+</mapper>
