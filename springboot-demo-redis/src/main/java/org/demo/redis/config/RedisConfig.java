@@ -80,14 +80,12 @@ public class RedisConfig {
 		RedisCacheConfiguration cacheConfiguration = getRedisCacheConfiguration(Duration.ZERO);
 		// 当redis注解value为“10min”时候，采用下面这个配置
 		Map<String, RedisCacheConfiguration> initialCacheConfigurations = new HashMap<>();
-		initialCacheConfigurations.put("20sec", getRedisCacheConfiguration(Duration.ofSeconds(20L)));
-		initialCacheConfigurations.put("10min", getRedisCacheConfiguration(Duration.ofMinutes(10L)));
-		initialCacheConfigurations.put("1h", getRedisCacheConfiguration(Duration.ofHours(1L)));
-		initialCacheConfigurations.put("6h", getRedisCacheConfiguration(Duration.ofHours(6L)));
-		RedisCacheManager redisCacheManager = RedisCacheManager.builder(lettuceConnectionFactory)
-				.cacheDefaults(cacheConfiguration)
-				.withInitialCacheConfigurations(initialCacheConfigurations)
-				.transactionAware().build();
+		initialCacheConfigurations.put("S20", getRedisCacheConfiguration(Duration.ofSeconds(20L)));
+		initialCacheConfigurations.put("M10", getRedisCacheConfiguration(Duration.ofMinutes(10L)));
+		initialCacheConfigurations.put("H1", getRedisCacheConfiguration(Duration.ofHours(1L)));
+		initialCacheConfigurations.put("H6", getRedisCacheConfiguration(Duration.ofHours(6L)));
+		initialCacheConfigurations.put("H12", getRedisCacheConfiguration(Duration.ofHours(12L)));
+		RedisCacheManager redisCacheManager = RedisCacheManager.builder(lettuceConnectionFactory).cacheDefaults(cacheConfiguration).withInitialCacheConfigurations(initialCacheConfigurations).transactionAware().build();
 		return redisCacheManager;
 	}
 

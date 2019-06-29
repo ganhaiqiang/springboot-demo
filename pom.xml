@@ -26,6 +26,7 @@
 		<module>springboot-demo-multidatasource</module>
 		<module>springboot-demo-caffeine</module>
 		<module>springboot-demo-googleauth</module>
+		<module>springboot-demo-aop</module>
 	</modules>
 
 	<parent>

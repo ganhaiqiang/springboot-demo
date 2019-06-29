@@ -8,21 +8,14 @@ import org.demo.mybatis.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-
 @Service
 public class StudentServiceImpl implements StudentService {
 	@Autowired
 	private StudentMapper studentMapper;
 
 	@Override
-	public PageInfo<Student> selectByPage(int pageNum, int pageSize) {
-		PageHelper.startPage(pageNum, pageSize, true);
-
-		List<Student> students = studentMapper.selectAll();
-
-		return new PageInfo<>(students);
+	public List<Student> selectByPage() {
+		return studentMapper.selectAll();
 	}
 
 	@Override

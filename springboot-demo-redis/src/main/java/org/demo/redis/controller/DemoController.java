@@ -5,6 +5,7 @@ import java.util.concurrent.CountDownLatch;
 
 import javax.servlet.http.HttpSession;
 
+import org.demo.redis.common.TTL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,7 @@ public class DemoController {
 	}
 
 	@GetMapping("cacheTest")
-	@Cacheable(value = "20sec", key = "#name")
+	@Cacheable(value = TTL.S_20, key = "#name")
 	public String getName(String name) {
 		System.out.println("缓存失效");
 		return "Hello," + name;

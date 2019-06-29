@@ -1,11 +1,11 @@
 package org.demo.mybatis.service;
 
+import java.util.List;
+
 import org.demo.mybatis.model.Student;
 
-import com.github.pagehelper.PageInfo;
-
 public interface StudentService {
-	PageInfo<Student> selectByPage(int pageNum, int pageSize);
+	List<Student> selectByPage();
 
 	int deleteByPrimaryKey(Integer id);
 

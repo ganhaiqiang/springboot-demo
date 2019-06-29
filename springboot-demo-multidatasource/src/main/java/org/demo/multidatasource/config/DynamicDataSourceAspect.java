@@ -10,27 +10,30 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Aspect
-@Order(-1) // 保证该AOP在@Transactional之前执行
+@Order(-100) // 保证该AOP在@Transactional之前执行
 @Component
 public class DynamicDataSourceAspect {
 	private static final Logger logger = LoggerFactory.getLogger(DynamicDataSourceAspect.class);
 
-	@Before("@within(ds)")
-	public void changeDataSource(JoinPoint point, DataSource ds) throws Throwable {
-		System.out.println("***********************************");
-		String dsId = ds.value();
-		if (!DynamicDataSourceContextHolder.containsDataSource(dsId)) {
-			logger.error("数据源[{}]不存在，使用默认数据源 > {}", ds.value(), point.getSignature());
-		} else {
-			logger.debug("Use DataSource : {} > {}", ds.value(), point.getSignature());
-			DynamicDataSourceContextHolder.setDataSourceType(ds.value());
+	@Before("execution(* org.demo.multidatasource.dao.*.*(..))")
+	public void changeDataSource(JoinPoint joinPoint) throws Throwable {
+		for (Class<?> cls : joinPoint.getTarget().getClass().getInterfaces()) {
+			System.out.println(cls.getName());
+			DataSource ds = cls.getAnnotation(DataSource.class);
+			if (ds != null) {
+				if (!DynamicDataSourceContextHolder.containsDataSource(ds.value())) {
+					logger.error("数据源[{}]不存在，使用默认数据源 > {}", ds.value(), joinPoint.getSignature());
+				} else {
+					logger.debug("Use DataSource : {} > {}", ds.value(), joinPoint.getSignature());
+					DynamicDataSourceContextHolder.setDataSourceType(ds.value());
+				}
+				break;
+			}
 		}
 	}
 
-	@After("@within(ds)")
-	public void restoreDataSource(JoinPoint point, DataSource ds) {
-		System.out.println("***********************************");
-		logger.debug("Revert DataSource : {} > {}", ds.value(), point.getSignature());
+	@After("execution(* org.demo.multidatasource.dao.*.*(..))")
+	public void restoreDataSource(JoinPoint joinPoint) {
 		DynamicDataSourceContextHolder.clearDataSourceType();
 	}
 

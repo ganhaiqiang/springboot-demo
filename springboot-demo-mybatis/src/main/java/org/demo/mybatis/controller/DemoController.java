@@ -23,6 +23,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageHelper;
+
 @RestController
 public class DemoController {
 
@@ -36,7 +38,7 @@ public class DemoController {
 
 	@GetMapping("selectByPage")
 	public Object selectByPage(int pageNum, int pageSize) {
-		return studentService.selectByPage(pageNum, pageSize);
+		return PageHelper.startPage(pageNum, pageSize).doSelectPageInfo(() -> studentService.selectByPage());
 	}
 
 	@GetMapping("excel")
