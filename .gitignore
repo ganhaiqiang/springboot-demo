@@ -80,3 +80,7 @@
 /springboot-demo-googleauth/.classpath
 /springboot-demo-googleauth/target
 /springboot-demo-googleauth/.settings
+/springboot-demo-aop/.settings
+/springboot-demo-aop/target
+/springboot-demo-aop/.classpath
+/springboot-demo-aop/.project
